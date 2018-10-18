@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+group 'spring.holoman'
+version '1.2-SNAPSHOT'
+
+
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+
+bootJar.enabled = false
+jar.enabled = true
+
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'spring.holoman'
+            artifactId = 'ldj-spring-boot-holoman'
+            version = '1.2-SNAPSHOT'
+
+            from components.java
+        }
+    }
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: '2.0.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure-processor', version: '2.0.4.RELEASE'
+
+}
