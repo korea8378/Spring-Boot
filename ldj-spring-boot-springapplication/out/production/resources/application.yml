@@ -1,2 +1,9 @@
 server:
   port: 8443
+
+---
+
+dongjun:
+  name: dongjun
+  age: 10
+  fullName: leedongjun

@@ -1,5 +1,7 @@
 package ldj.springboot.springapplication;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
@@ -32,14 +34,14 @@ import org.springframework.stereotype.Component;
 //
 //    }
 
-@Component
-@Order(1) //우선 순위를 지정 할 수 있다.
-public class SampleListener implements ApplicationRunner {
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        System.out.println("foo : " + args.containsOption("foo"));
-        System.out.println("bar : " + args.containsOption("bar"));
-    }
+//@Component
+//@Order(1) //우선 순위를 지정 할 수 있다.
+//public class SampleListener implements ApplicationRunner {
+//    @Override
+//    public void run(ApplicationArguments args) throws Exception {
+//        System.out.println("foo : " + args.containsOption("foo"));
+//        System.out.println("bar : " + args.containsOption("bar"));
+//    }
 
     //class에 생성자가 하나이고 매개변수가 bean일 경우 springApplication이 알아서 bean을 주입해준다.
 //    public SampleListener(ApplicationArguments applicationArguments) {
@@ -47,5 +49,19 @@ public class SampleListener implements ApplicationRunner {
 //        System.out.println("bar : " + applicationArguments.containsOption("bar"));
 //    }
 
+@Component
+public class SampleListener implements ApplicationRunner {
 
+    @Autowired
+    DongjunProperties dongjunProperties;
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        System.out.println("=================");
+        System.out.println(dongjunProperties.getName());
+        System.out.println(dongjunProperties.getAge());
+        System.out.println(dongjunProperties.getFullname());
+        System.out.println("=================");
+
+    }
 }
