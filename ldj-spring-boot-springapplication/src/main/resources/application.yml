@@ -7,3 +7,31 @@ dongjun:
   name: dongjun
   age: 10
   fullName: leedongjun
+
+---
+spring:
+  profiles:
+    active: test
+
+---
+
+spring:
+  profiles: prod
+
+dongjun:
+  name: prodjun
+  age: 100
+  fullName: prodlee
+
+
+---
+spring:
+  profiles: test
+
+dongjun:
+  name: testjun
+  age: 1000
+  fullName: testlee
+
+---
+

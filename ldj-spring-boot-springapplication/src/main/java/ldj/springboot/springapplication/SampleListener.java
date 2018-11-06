@@ -55,12 +55,14 @@ public class SampleListener implements ApplicationRunner {
     @Autowired
     DongjunProperties dongjunProperties;
 
+    @Autowired
+    private String hello;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("=================");
+        System.out.println(hello);
         System.out.println(dongjunProperties.getName());
-        System.out.println(dongjunProperties.getAge());
-        System.out.println(dongjunProperties.getFullname());
         System.out.println("=================");
 
     }
