@@ -1,6 +1,15 @@
 server:
   port: 8443
 
+logging:
+  level:
+ #   ldj:
+  #    springboot:
+   #     springapplication: DEBUG
+
+    org:
+      springframework: debug
+
 ---
 
 dongjun:
